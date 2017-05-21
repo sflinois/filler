@@ -6,7 +6,7 @@
 #    By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/10 11:48:48 by sflinois          #+#    #+#              #
-#    Updated: 2017/05/17 15:23:18 by sflinois         ###   ########.fr        #
+#    Updated: 2017/05/21 19:26:46 by sflinois         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CCGREEN = "\033[0;32m"
 CCEND = "\033[0m"
 
 SRC_PATH = src
-SRC_NAME = filler.c
+SRC_NAME = filler.c parsing.c init_struct.c check_error.c resolve_map.c
 OBJ_PATH = objs
 CPPFLAGS = -Iincludes
 
