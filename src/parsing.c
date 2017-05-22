@@ -24,51 +24,49 @@ void		next_line(void)
 
 	if (get_next_line(0, &line))
 		ft_strdel(&line);
+	dprintf(2, ">%s\n", line);
 }
 
-void		get_map(t_struct *s)
+void		get_map(t_struct *s, char **line)
 {
 	int		y;
 	int		y_len;
-	char	*line;
 
-	s->error = init_map(s);
+	s->error = init_map(s, line);
 	next_line();
 	y = 0;
 	y_len = 0;
 	while (y < s->m.y_map && !s->error)
 	{
-		get_next_line(0, &line);
-		while (ft_isdigit(line[y_len]))
+		get_next_line(0, line);
+		while (ft_isdigit((*line)[y_len]))
 			y_len++;
-		if (!(s->m.map[y] = ft_strdup(line + y_len + 1)))
+		if (!(s->m.map[y] = ft_strdup(*line + y_len + 1)))
 			s->error = 1;
-		ft_strdel(&line);
+		ft_strdel(line);
 		y++;
 	}
 }
 
-void		get_piece(t_struct *s)
+void		get_piece(t_struct *s, char **line)
 {
 	int		y;
-	char	*line;
 
-	s->error = init_piece(s);
+	s->error = init_piece(s, line);
 	y = 0;
 	while (y < s->p.y_piece && !s->error)
 	{
-		get_next_line(0, &line);
-		if (!(s->p.piece[y] = ft_strdup(line)))
+		get_next_line(0, line);
+		if (!(s->p.piece[y] = ft_strdup(*line)))
 			s->error = 1;
-		ft_strdel(&line);
+		ft_strdel(line);
 		y++;
 	}
 }
 
-int			pars_map(t_struct *s)
+int			pars_map(t_struct *s, char **line)
 {
-	init_player(s);
-	get_map(s);
-	get_piece(s);
+	get_map(s, line);
+	get_piece(s, line);
 	return (s->error);
 }

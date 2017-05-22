@@ -42,11 +42,11 @@ typedef struct		s_struct
 	t_piece			p;
 }					t_struct;
 
-int					pars_map(t_struct *s);
 void				init_struct(t_struct *s);
 int					init_player(t_struct *s);
-int					init_map(t_struct *s);
-int					init_piece(t_struct *s);
+int					pars_map(t_struct *s, char **line);
+int					init_map(t_struct *s, char **line);
+int					init_piece(t_struct *s, char **line);
 int					check_error(t_struct *s);
 t_coord_ret			resolve_map(t_struct *s);
 

@@ -47,39 +47,33 @@ int			init_player(t_struct *s)
 	return (0);
 }
 
-int			init_map(t_struct *s)
+int			init_map(t_struct *s, char **line)
 {
-	char	*line;
-
-	if (!get_next_line(0, &line))
-		return (1);
-	if (ft_strncmp("Plateau", line, 7) || s->error)
+	if (ft_strncmp("Plateau", *line, 7) || s->error)
 	{
-		ft_strdel(&line);
+		ft_strdel(line);
 		return (1);
 	}
-	s->m.y_map = ft_atoi(ft_strchr(line, ' ') + 1);
-	s->m.x_map = ft_atoi(ft_strrchr(line, ' ') + 1);
-	ft_strdel(&line);
+	s->m.y_map = ft_atoi(ft_strchr(*line, ' ') + 1);
+	s->m.x_map = ft_atoi(ft_strrchr(*line, ' ') + 1);
+	ft_strdel(line);
 	if (!(s->m.map = (char**)ft_memalloc(sizeof(char*) * s->m.y_map)))
 		return (1);
 	return (0);
 }
 
-int			init_piece(t_struct *s)
+int			init_piece(t_struct *s, char **line)
 {
-	char	*line;
-
-	if (!get_next_line(0, &line))
+	if (!get_next_line(0, line))
 		return (1);
-	if (ft_strncmp("Piece", line, 5) || s->error)
+	if (ft_strncmp("Piece", *line, 5) || s->error)
 	{
-		ft_strdel(&line);
+		ft_strdel(line);
 		return (1);
 	}
-	s->p.y_piece = ft_atoi(ft_strchr(line, ' ') + 1);
-	s->p.x_piece = ft_atoi(ft_strrchr(line, ' ') + 1);
-	ft_strdel(&line);
+	s->p.y_piece = ft_atoi(ft_strchr(*line, ' ') + 1);
+	s->p.x_piece = ft_atoi(ft_strrchr(*line, ' ') + 1);
+	ft_strdel(line);
 	if (!(s->p.piece = (char**)ft_memalloc(sizeof(char*) * s->p.y_piece)))
 		return (1);
 	return (0);
