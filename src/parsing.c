@@ -6,7 +6,7 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/21 17:32:33 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/21 19:48:46 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/23 20:01:07 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,27 @@ void		next_line(void)
 
 	if (get_next_line(0, &line))
 		ft_strdel(&line);
-	dprintf(2, ">%s\n", line);
+}
+
+void		fill_t_map(t_struct *s)
+{
+	int		x;
+	int		y;
+
+	y = 0;
+	while (y < s->m.y_map)
+	{
+		x = 0;
+		while (x < s->m.x_map)
+		{
+			if (s->m.map[y][x] == s->me.p_char)
+				s->me.t_map[y][x] += s->m.y_map + s->m.x_map;
+			if (s->m.map[y][x] == s->enemy.p_char)
+				s->enemy.t_map[y][x] += s->m.y_map + s->m.x_map;
+			x++;
+		}
+		y++;
+	}
 }
 
 void		get_map(t_struct *s, char **line)
@@ -46,6 +66,7 @@ void		get_map(t_struct *s, char **line)
 		ft_strdel(line);
 		y++;
 	}
+	fill_t_map(s);
 }
 
 void		get_piece(t_struct *s, char **line)

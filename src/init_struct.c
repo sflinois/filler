@@ -6,7 +6,7 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/21 16:47:44 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/21 19:52:26 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/23 18:36:44 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 void		init_struct(t_struct *s)
 {
 	s->error = 0;
-	s->player = 0;
 	s->m.y_map = 0;
 	s->m.x_map = 0;
 	s->m.map = NULL;
@@ -38,12 +37,31 @@ int			init_player(t_struct *s)
 		ft_strdel(&line);
 		return (1);
 	}
-	s->player = ft_atoi(line + 10);
-	if (s->player == 1)
-		s->p_char = 'O';
-	else if (s->player == 2)
-		s->p_char = 'X';
+	s->me.player = ft_atoi(line + 10);
+	s->enemy.player = s->me.player == 1 ? 2 : 1;
+	s->me.p_char = s->me.player == 1 ? 'O' : 'X';
+	s->enemy.p_char = s->enemy.player == 1 ? 'O' : 'X';
 	ft_strdel(&line);
+	return (0);
+}
+
+int			init_t_map(t_struct *s)
+{
+	int		y;
+
+	if (!(s->me.t_map = (int**)ft_memalloc(sizeof(int*) * s->m.y_map)))
+		return (1);
+	if (!(s->enemy.t_map = (int**)ft_memalloc(sizeof(int*) * s->m.y_map)))
+		return (1);
+	y = 0;
+	while (y < s->m.y_map)
+	{
+		if (!(s->me.t_map[y] = (int*)ft_memalloc(sizeof(int) * s->m.x_map)))
+			return (1);
+		if (!(s->enemy.t_map[y] = (int*)ft_memalloc(sizeof(int) * s->m.x_map)))
+			return (1);
+		y++;
+	}
 	return (0);
 }
 
@@ -59,7 +77,7 @@ int			init_map(t_struct *s, char **line)
 	ft_strdel(line);
 	if (!(s->m.map = (char**)ft_memalloc(sizeof(char*) * s->m.y_map)))
 		return (1);
-	return (0);
+	return (init_t_map(s));
 }
 
 int			init_piece(t_struct *s, char **line)

@@ -6,7 +6,7 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/21 19:05:19 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/21 19:57:23 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/23 18:29:08 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int				is_place(t_struct *s, int y, int x)
 				if (y + y_p < 0 || y + y_p >= s->m.y_map ||
 						x + x_p < 0 || x + x_p >= s->m.x_map ||
 						(s->m.map[y + y_p][x + x_p] != '.' &&
-						s->m.map[y + y_p][x + x_p] != s->p_char))
+						s->m.map[y + y_p][x + x_p] != s->me.p_char))
 					return (0);
-				if (s->m.map[y + y_p][x + x_p] == s->p_char)
+				if (s->m.map[y + y_p][x + x_p] == s->me.p_char)
 					count_p_char++;
 			}
 			x_p++;
@@ -44,29 +44,15 @@ int				is_place(t_struct *s, int y, int x)
 	return (count_p_char == 1 ? 1 : 0);
 }
 
-t_coord_ret		resolve_map(t_struct *s)
+void			resolve_map(t_struct *s)
 {
-	t_coord_ret	ret;
-	int			x;
-	int			y;
+	//int					i;
+	//int					strat;
+	//static const t_strat st_tab[] = {
+	//					{1, (*applystrat_territory)},
+	//					{-1, NULL},
+	//					};
 
-	ret.x = 0;
-	ret.y = 0;
-	y = 0;
-	while (y < s->m.y_map)
-	{
-		x = 0;
-		while (x < s->m.x_map)
-		{
-			if (is_place(s, y, x))
-			{
-				ret.x = x;
-				ret.y = y;
-				return (ret);
-			}
-			x++;
-		}
-		y++;
-	}
-	return (ret);
+	//i = 0;
+	territory_strat(s);
 }
