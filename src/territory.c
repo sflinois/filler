@@ -6,7 +6,7 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 17:14:43 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/23 20:00:42 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/24 17:00:12 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,65 +70,8 @@ int			count_territory_me(t_struct *s, int y, int x, int nb)
 	count = 0;
 	if (s->me.t_map[y][x] == nb)
 	{
-		if (y - 1 >= 0 && s->me.t_map[y - 1][x] == 0
-				&& s->m.map[y - 1][x] != s->enemy.p_char)
-		{
-			s->me.t_map[y - 1][x] = nb - 1;
-			count++;
-		}
-		if (y + 1 < s->m.y_map && s->me.t_map[y + 1][x] == 0
-				&& s->m.map[y + 1][x] != s->enemy.p_char)
-		{
-			s->me.t_map[y + 1][x] = nb - 1;
-			count++;
-		}
-		if (x - 1 >= 0 && s->me.t_map[y][x - 1] == 0
-				&& s->m.map[y][x - 1] != s->enemy.p_char)
-		{
-			s->me.t_map[y][x - 1] = nb - 1;
-			count++;
-		}
-		if (x + 1 < s->m.y_map && s->me.t_map[y][x + 1] == 0
-				&& s->m.map[y][x + 1] != s->enemy.p_char)
-		{
-			s->me.t_map[y][x + 1] = nb - 1;
-			count++;
-		}
-	}
-	return (count);
-}
-
-int			count_territory_enemy(t_struct *s, int y, int x, int nb)
-{
-	int		count;
-
-	count = 0;
-	if (s->enemy.t_map[y][x] == nb)
-	{
-		if (y - 1 >= 0 && s->enemy.t_map[y - 1][x] == 0
-				&& s->m.map[y - 1][x] != s->me.p_char)
-		{
-			s->enemy.t_map[y - 1][x] = nb - 1;
-			count++;
-		}
-		if (y + 1 < s->m.y_map && s->enemy.t_map[y + 1][x] == 0
-				&& s->m.map[y + 1][x] != s->me.p_char)
-		{
-			s->enemy.t_map[y + 1][x] = nb - 1;
-			count++;
-		}
-		if (x - 1 >= 0 && s->enemy.t_map[y][x - 1] == 0
-				&& s->m.map[y][x - 1] != s->me.p_char)
-		{
-			s->enemy.t_map[y][x - 1] = nb - 1;
-			count++;
-		}
-		if (x + 1 < s->m.y_map && s->enemy.t_map[y][x + 1] == 0
-				&& s->m.map[y][x + 1] != s->me.p_char)
-		{
-			s->enemy.t_map[y][x + 1] = nb - 1;
-			count++;
-		}
+		count += count_t_y_me(s, y, x, nb);
+		count += count_t_x_me(s, y, x, nb);
 	}
 	return (count);
 }

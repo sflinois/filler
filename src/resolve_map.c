@@ -6,14 +6,14 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/21 19:05:19 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/24 16:18:15 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/24 17:04:17 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/filler.h"
 #include "../include/libft.h"
 
-int				is_place(t_struct *s, int y, int x)
+int			is_place(t_struct *s, int y, int x)
 {
 	int		x_p;
 	int		y_p;
@@ -28,10 +28,9 @@ int				is_place(t_struct *s, int y, int x)
 		{
 			if (s->p.piece[y_p][x_p] == '*')
 			{
-				if (y + y_p < 0 || y + y_p >= s->m.y_map ||
-						x + x_p < 0 || x + x_p >= s->m.x_map ||
-						(s->m.map[y + y_p][x + x_p] != '.' &&
-						s->m.map[y + y_p][x + x_p] != s->me.p_char))
+				if (y + y_p < 0 || y + y_p >= s->m.y_map || x + x_p < 0 ||
+						x + x_p >= s->m.x_map || (s->m.map[y + y_p][x + x_p]
+						!= '.' && s->m.map[y + y_p][x + x_p] != s->me.p_char))
 					return (0);
 				if (s->m.map[y + y_p][x + x_p] == s->me.p_char)
 					count_p_char++;
@@ -43,7 +42,7 @@ int				is_place(t_struct *s, int y, int x)
 	return (count_p_char == 1 ? 1 : 0);
 }
 
-int			get_points(t_struct *s, int	player)
+int			get_points(t_struct *s, int player)
 {
 	int		y;
 	int		x;
@@ -91,7 +90,7 @@ int			get_t_value(t_struct *s, int player)
 	return (points);
 }
 
-void		estimate_points(t_struct *s, int y, int	x)
+void		estimate_points(t_struct *s, int y, int x)
 {
 	int		me_points;
 	int		enemy_t_value;
@@ -113,13 +112,12 @@ void		estimate_points(t_struct *s, int y, int	x)
 		s->enemy.t_value = enemy_t_value;
 		s->me.best_coords_y = y;
 		s->me.best_coords_x = x;
-
 	}
 	reset_territory(s);
 	delete_piece(s, y, x);
 }
 
-void			resolve_map(t_struct *s)
+void		resolve_map(t_struct *s)
 {
 	int		x;
 	int		y;
