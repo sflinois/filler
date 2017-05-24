@@ -6,17 +6,12 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/21 17:32:33 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/23 20:01:07 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/24 15:21:38 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/filler.h"
 #include "../include/libft.h"
-#include <fcntl.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdio.h> //printf
-#include <stdlib.h> //printf
 
 void		next_line(void)
 {
@@ -89,5 +84,6 @@ int			pars_map(t_struct *s, char **line)
 {
 	get_map(s, line);
 	get_piece(s, line);
+	check_error(s);
 	return (s->error);
 }

@@ -6,7 +6,7 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/21 17:31:15 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/23 18:55:07 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/24 16:23:29 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct		s_enemy
 	int				player;
 	char			p_char;
 	int				**t_map;
-	int				approx_points;	
+	int				t_value;	
 }					t_enemy;
 
 typedef struct		s_me
@@ -60,12 +60,13 @@ typedef struct		s_strat
 	int				(*strat)(t_struct *s);
 }					t_strat;
 
+void				free_structs(t_struct *s);
 void				init_struct(t_struct *s);
 int					init_player(t_struct *s);
-int					pars_map(t_struct *s, char **line);
 int					init_map(t_struct *s, char **line);
 int					init_piece(t_struct *s, char **line);
-int					check_error(t_struct *s);
+int					pars_map(t_struct *s, char **line);
+void				check_error(t_struct *s);
 void				resolve_map(t_struct *s);
 int					is_place(t_struct *s, int y, int x);
 void				territory_strat(t_struct *s);

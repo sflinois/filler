@@ -6,7 +6,7 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/21 16:47:44 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/23 18:36:44 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/24 15:28:15 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void		init_struct(t_struct *s)
 	s->p.y_piece = 0;
 	s->p.x_piece = 0;
 	s->p.piece = NULL;
+	s->me.best_coords_y = 0;
+	s->me.best_coords_x = 0;
 }
 
 int			init_player(t_struct *s)
