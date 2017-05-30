@@ -6,7 +6,7 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/21 16:47:44 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/24 15:28:15 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/30 16:30:00 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 void		init_struct(t_struct *s)
 {
 	s->error = 0;
+	s->prev_map = NULL;
 	s->m.y_map = 0;
 	s->m.x_map = 0;
 	s->m.map = NULL;

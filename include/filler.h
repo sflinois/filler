@@ -6,7 +6,7 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/21 17:31:15 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/24 17:56:29 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/30 17:42:04 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct		s_piece
 typedef struct		s_struct
 {
 	int				error;
+	char			**prev_map;
 	t_me			me;
 	t_enemy			enemy;
 	t_map			m;
@@ -57,6 +58,7 @@ typedef struct		s_struct
 }					t_struct;
 
 void				free_structs(t_struct *s);
+void				free_map(t_struct *s);
 void				init_struct(t_struct *s);
 int					init_player(t_struct *s);
 int					init_map(t_struct *s, char **line);

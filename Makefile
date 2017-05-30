@@ -6,7 +6,7 @@
 #    By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/10 11:48:48 by sflinois          #+#    #+#              #
-#    Updated: 2017/05/24 16:59:31 by sflinois         ###   ########.fr        #
+#    Updated: 2017/05/30 17:30:17 by sflinois         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,13 @@ CCGREEN = "\033[0;32m"
 CCEND = "\033[0m"
 
 SRC_PATH = src
-SRC_NAME = check_error.c filler.c init_struct.c parsing.c resolve_map.c territory.c count_territory.c
+SRC_NAME = check_error.c filler.c init_struct.c parsing.c resolve_map.c territory.c count_territory.c speed_ending.c
 OBJ_PATH = objs
 CPPFLAGS = -Iincludes
 
-LDLIBS = lib/libft.a
-FRAM = -framework OpenGL -framework AppKit
+LIBPATH = libft
+LDFLAGS = -Llibft
+LDLIBS = -lft
 
 NAME = sflinois.filler
 
@@ -38,7 +39,8 @@ OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) -o $@ $(LDLIBS) $(OBJ) $(FRAM)
+	@make all -C $(LIBPATH)
+	@$(CC) -o $@ $(LDFLAGS) $(LDLIBS) $(OBJ)
 	@echo $(CCGREEN) filler OK $(CCEND)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
@@ -46,12 +48,14 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 clean:
+	@make clean -C $(LIBPATH)
 	@echo $(CCRED)
 	@rm -fv $(OBJ)
 	@rmdir $(OBJ_PATH) 2> /dev/null || true
 	@echo $(CCEND)
 
 fclean: clean
+	@make fclean -C $(LIBPATH)
 	@echo $(CCRED)
 	@rm -fv $(NAME)
 	@echo $(CCEND)
