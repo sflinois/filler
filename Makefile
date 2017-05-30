@@ -6,7 +6,7 @@
 #    By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/10 11:48:48 by sflinois          #+#    #+#              #
-#    Updated: 2017/05/30 17:30:17 by sflinois         ###   ########.fr        #
+#    Updated: 2017/05/30 17:50:34 by sflinois         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CCGREEN = "\033[0;32m"
 CCEND = "\033[0m"
 
 SRC_PATH = src
-SRC_NAME = check_error.c filler.c init_struct.c parsing.c resolve_map.c territory.c count_territory.c speed_ending.c
+SRC_NAME = check_error.c filler.c init_struct.c parsing.c resolve_map.c territory.c count_territory.c
 OBJ_PATH = objs
 CPPFLAGS = -Iincludes
 

@@ -6,12 +6,12 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 15:16:20 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/30 17:41:12 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/30 17:53:26 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/filler.h"
-#include "../include/libft.h"
+#include "../libft/includes/libft.h"
 #include <stdlib.h>
 
 void	free_structs(t_struct *s)

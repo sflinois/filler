@@ -6,12 +6,12 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/21 19:05:19 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/30 17:41:40 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/30 17:53:59 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/filler.h"
-#include "../include/libft.h"
+#include "../libft/includes/libft.h"
 
 int			is_place(t_struct *s, int y, int x)
 {

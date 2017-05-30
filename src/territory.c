@@ -6,12 +6,12 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 17:14:43 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/24 17:00:12 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/30 17:54:11 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/filler.h"
-#include "../include/libft.h"
+#include "../libft/includes/libft.h"
 
 void		insert_piece(t_struct *s, int y, int x)
 {

@@ -6,12 +6,12 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/21 17:32:33 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/24 15:21:38 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/30 17:53:48 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/filler.h"
-#include "../include/libft.h"
+#include "../libft/includes/libft.h"
 
 void		next_line(void)
 {

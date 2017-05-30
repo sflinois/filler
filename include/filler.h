@@ -6,14 +6,14 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/21 17:31:15 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/30 17:42:04 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/30 17:55:10 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLER_H
 # define FILLER_H
 
-# include "libft.h"
+# include "../libft/includes/libft.h"
 
 typedef struct		s_me
 {

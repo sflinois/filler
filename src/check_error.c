@@ -6,12 +6,12 @@
 /*   By: sflinois <sflinois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/21 17:26:54 by sflinois          #+#    #+#             */
-/*   Updated: 2017/05/24 16:23:51 by sflinois         ###   ########.fr       */
+/*   Updated: 2017/05/30 17:53:05 by sflinois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/filler.h"
-#include "../include/libft.h"
+#include "../libft/includes/libft.h"
 
 void		check_error(t_struct *s)
 {
